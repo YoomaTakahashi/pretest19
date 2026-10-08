@@ -51,7 +51,7 @@ const detail_commit = ref('')
 const id_eva = useRoute().params.id_eva
 
 const viweFile = (filename:string) =>{
-    const url = `http://localhost:3001/uploads/evadetail/${filename}`
+    const url = `http://localhost:3001/uploads/file_eva/${filename}`
     window.open(url,'_blank')
 }
 
