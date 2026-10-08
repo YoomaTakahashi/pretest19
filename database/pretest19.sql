@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Oct 08, 2026 at 07:10 AM
+-- Generation Time: Oct 08, 2026 at 08:18 AM
 -- Server version: 26.7.0
 -- PHP Version: 8.3.35
 
@@ -32,10 +32,17 @@ CREATE TABLE `tb_commit` (
   `id_member` int NOT NULL,
   `id_eva` int NOT NULL,
   `detail_commit` text NOT NULL,
-  `status_commit` int NOT NULL,
+  `status_commit` varchar(100) NOT NULL,
   `level_commit` varchar(100) NOT NULL,
-  `signature` varchar(100) NOT NULL
+  `signature` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tb_commit`
+--
+
+INSERT INTO `tb_commit` (`id_commit`, `id_member`, `id_eva`, `detail_commit`, `status_commit`, `level_commit`, `signature`) VALUES
+(1, 3, 1, '1111', 'y\r\n', 'ประธาน', '');
 
 -- --------------------------------------------------------
 
@@ -143,7 +150,8 @@ CREATE TABLE `tb_member` (
 --
 
 INSERT INTO `tb_member` (`id_member`, `fname`, `lname`, `username`, `password`, `email`, `role`, `pic_user`) VALUES
-(1, 'supimon', 'supimon', 'supimon', '$2b$10$kIhyXRYodhNt/voYiYJkVOKUj7S1xFQ5TgYQAlyA2lbrQAfd1semy', 'supimon@gmail.com', 'ผู้รับการประเมินผล', '1791428538598.png');
+(1, 'supimon', 'supimon', 'supimon', '$2b$10$kIhyXRYodhNt/voYiYJkVOKUj7S1xFQ5TgYQAlyA2lbrQAfd1semy', 'supimon@gmail.com', 'ผู้รับการประเมินผล', '1791428538598.png'),
+(3, 'commituser', 'commituser', 'commituser', '$2b$10$dMgeQVnKJOoIA1BmA1ccjOWmwS2Le2IySWqltFKG8l//i9unpn9eS', 'commituser@gmail.com', 'กรรมการประเมิน', '1791445092059.png');
 
 -- --------------------------------------------------------
 
@@ -245,7 +253,7 @@ ALTER TABLE `tb_topic`
 -- AUTO_INCREMENT for table `tb_commit`
 --
 ALTER TABLE `tb_commit`
-  MODIFY `id_commit` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_commit` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_doc`
@@ -275,7 +283,7 @@ ALTER TABLE `tb_indicate`
 -- AUTO_INCREMENT for table `tb_member`
 --
 ALTER TABLE `tb_member`
-  MODIFY `id_member` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_member` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_system`
