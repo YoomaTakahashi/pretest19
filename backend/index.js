@@ -1,4 +1,3 @@
-
 require('dotenv').config({path:'.env'})
 const path = require('path')
 const express = require('express')
@@ -14,8 +13,6 @@ app.use(cors({
 app.use(express.json())
 app.use(fileUp())
 app.use('/uploads',express.static(path.join(__dirname,'./uploads')))
-
-
 
 const auth = require('./routes/auth')
 app.use('/api/auth',auth)
@@ -75,6 +72,26 @@ app.use('/api/Eva/selfeva',selfeva)
 
 const edit_eva = require('./routes/Eva/edit_eva')
 app.use('/api/Eva/edit_eva',edit_eva)
+
+//commit 
+
+const score_commit3 = require('./routes/Commit/score_commit')
+app.use('/api/Commit/score_commit',score_commit3)
+
+const show_eva = require('./routes/Commit/show_eva')
+app.use('/api/Commit/show_eva',show_eva)
+
+const check_confirm = require('./routes/Commit/check_confirm')
+app.use('/api/Commit/check_confirm',check_confirm)
+
+
+const save_score = require('./routes/Commit/save_score')
+app.use('/api/Commit/save_score',save_score)
+
+const signature = require('./routes/Commit/signature')
+app.use('/api/Commit/signature',signature)
+const score_member3 = require('./routes/Commit/score_member')
+app.use('/api/Commit/score_member',score_member3)
 
 app.use((req,res)=> res.status(404).json({message:"Route not Found"}))
 app.listen(3001,()=>{
