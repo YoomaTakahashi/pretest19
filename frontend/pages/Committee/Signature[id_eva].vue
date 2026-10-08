@@ -33,12 +33,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(items,index) in result" :key="items.id_doc">
-                                    <td class="border text-center">{{ index+1 }}</td>
+                                <tr>
+                                    <td class="border text-center">{{ 1 }}</td>
                                     <td class="border text-center">{{ result.signature }}</td>
                                     <td class="border text-center">
                                         <v-btn class="text-center text-white ma-2" color="warning" prepend-icon="mdi-eye" @click="view(result.signature)">เปิดดู</v-btn>
-                                        <v-btn class="text-center text-white ma-2" color="error" prepend-icon="mdi-eye" @click="del(items.id_eva)">ลบ</v-btn>
+                                        <v-btn class="text-center text-white ma-2" color="error"  @click="del(result.id_eva)">ลบ</v-btn>
                                     </td>
                                 </tr>
                                 <tr>
@@ -103,6 +103,7 @@ const del = async(id_doc:number)=>{
         await axios.delete(`${commit}/signature/${id_doc}`,{headers:{Authorization:`Bearer ${token}`}})
         alert('ลบสำเร็จ')
         await fetch()
+        window.location.reload()
     } catch (error) {
         console.error("error delete",error);
         
