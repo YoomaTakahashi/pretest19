@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const express = require('express')
+=======
+const express =require('express')
+>>>>>>> 512f41f5311f031746461a6b6127ebd6082ef23e
 const db =require('../db')
 const router = express.Router()
 const {verifyToken,requireRole} = require('../middleware/authmiddleware')
