@@ -4,8 +4,8 @@ const path =require('path')
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = process.env.JWT_SECRET
 const uploadDir = path.join(__dirname,'../uploads/pic_user')
-const router = express.Router()
 const db = require('../db')
+const router = express.Router()
 
 router.post('/regis',async(req,res)=>{
     try {
