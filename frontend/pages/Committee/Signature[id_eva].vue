@@ -33,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(items,index) in result" :key="items.id_doc">
+                                <tr v-for="(items,index) in result" :key="items">
                                     <td class="border text-center">{{ index+1 }}</td>
                                     <td class="border text-center">{{ result.signature }}</td>
                                     <td class="border text-center">
