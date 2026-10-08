@@ -24,7 +24,7 @@
                                 </v-col>
                             </v-row>
                         </v-form>
-                        <v-table  class="mt-3">
+                        <v-table v-else  class="mt-3">
                             <thead>
                                 <tr>
                                     <th class="border text-center">ลำดับ</th>
@@ -41,8 +41,8 @@
                                         <v-btn class="text-center text-white ma-2" color="error"  @click="del(result.id_eva)">ลบ</v-btn>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="text-center text-red" colspan="12" v-if="result.length === 0">ไม่พบข้อมูล</td>
+                                <tr v-if="result.length === 0">
+                                    <td class="text-center text-red" colspan="12">ไม่พบข้อมูล</td>
                                 </tr>
                             </tbody>
                         </v-table>
@@ -114,7 +114,7 @@ const result = ref([])
 
 
 const view = (filename:string)=>{
-    const url = new URL(`/uploads/signature/${filename}`,api).href
+    const url = new URL(`/uploads/signature/${filename}`,commit).href
     window.open(url,'_blank')
 }
 

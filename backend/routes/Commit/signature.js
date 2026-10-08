@@ -42,8 +42,8 @@ router.delete('/:id_eva',verifyToken,requireRole('กรรมการประ
     try {
         const id_member = req.user.id_member
         const id_eva = req.params.id_eva
-        const [[d]] = await db.query(`select signature from tb_commit where id_eva=? and id_member=? `,[null,id_eva,id_member])
-        res.json({message:'Uploads Success!!!!'})
+        const [[d]] = await db.query(`select signature from tb_commit where id_eva=? and id_member=? `,[id_eva,id_member])
+        res.status(201).json({message:'Uploads Success!'})
         const fp = path.join(uploadDir,d.signature)
         if(fs.existsSync(fp)){
             fs.unlinkSync(fp)
