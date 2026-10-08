@@ -24,7 +24,7 @@
                                 </v-col>
                             </v-row>
                         </v-form>
-                        <v-text-field label="ค้นหา" placeholder="ค้นหา" v-model="search" class="mt-3"></v-text-field>
+                        <v-text-field label="ค้นหา" placeholder="ค้นหา" v-model="search" prepend-inner-icon="mdi-magnify" class="mt-3"></v-text-field>
                         <v-table class="mt-3">
                             <thead>
                                 <tr>
