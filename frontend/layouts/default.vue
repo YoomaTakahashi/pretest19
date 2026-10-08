@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar :color="bg(user.role)" flat :elevation="5" class="rounded -b">
+        <v-app-bar :color="bg(user.role)" flat :elevation="5" class="rounded -b -sm pa-2">
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="font-weight-bold">NTC Evaluation System</v-toolbar-title>
             <v-spacer></v-spacer>
