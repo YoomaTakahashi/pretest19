@@ -20,7 +20,7 @@
                                     <td class="text-center boder pa-1" style="width: 10%;">{{ indicate.detail_indicate }}</td>
                                     <td class="text-center boder pa-1" style="width: 10%;">{{ indicate.point_indicate }}</td>
                                     <td class="text-center boder pa-1" style="width: 10%;">{{ indicate.point_indicate*4 }}</td>
-                                    <td class="text-center boder pa-1" style="width: 10%;">{{ indicate.score_member*indicate.point_indicate }}</td>
+                                    <td class="text-center boder pa-1" style="width: 10%;">{{ indicate.score_commit*indicate.point_indicate }}</td>
                                 </tr>
                             </v-table>
                         </v-col>
