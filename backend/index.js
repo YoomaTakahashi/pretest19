@@ -43,6 +43,9 @@ app.use('/api/Staff/commit',commit)
 const doc = require('./routes/Staff/doc')
 app.use('/api/Staff/doc',doc)
 
+const backup = require('./routes/Staff/backup')
+app.use('/api/Staff/backup',backup)
+
 app.use((req,res)=> res.status(404).json({message:"Route not Found"}))
 app.listen(3001,()=>{
 
