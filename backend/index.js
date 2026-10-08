@@ -1,4 +1,3 @@
-
 require('dotenv').config({path:'.env'})
 const path = require('path')
 const express = require('express')
@@ -14,8 +13,6 @@ app.use(cors({
 app.use(express.json())
 app.use(fileUp())
 app.use('/uploads',express.static(path.join(__dirname,'./uploads')))
-
-
 
 const auth = require('./routes/auth')
 app.use('/api/auth',auth)
