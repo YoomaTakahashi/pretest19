@@ -1,4 +1,4 @@
-const expres =require('express')
+const express = require('express')
 const db =require('../db')
 const router = express.Router()
 const {verifyToken,requireRole} = require('../middleware/authmiddleware')
