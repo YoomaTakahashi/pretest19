@@ -4,7 +4,7 @@
             <v-col cols="12" md="12">
                 <v-card>
                     <v-card-title>
-                        <h1 class="text-center text-h5">ผลการประเมินของผู้รับการประเมินผล</h1>
+                        <h1 class="text-center text-h5">สถานะการประเมินของผู้รับการประเมินผล</h1>
                     </v-card-title>
                     <v-card-text>
                         <br>
@@ -16,8 +16,8 @@
                                     <th class="border text-center">ผู้รับการประเมินผล</th>
                                     <th class="border text-center">รอบการประเมิน</th>
                                     <th class="border text-center">วันที่ออกแบบประเมิน</th>
-                                    <th class="border text-center">คะแนน</th>
-                                    <th class="border text-center">รายละเอียด</th>
+                                    <th class="border text-center">สถานะการประเมิน</th>
+                                    <!-- <th class="border text-center">รายละเอียด</th> -->
                                     
                                 </tr>
                             </thead>
@@ -27,10 +27,10 @@
                                     <td class="border text-center">{{ items.fname}} {{ items.lname }}</td>
                                     <td class="border text-center">รอบการประเมินที่:{{items.round_sys}} ปี:{{ items.year_sys }}</td>
                                     <td class="border text-center">{{ formatDate(items.day_eva) }}</td>
-                                    <td class="border text-center">{{ items.total_eva || 0}} คะแนน</td>
-                                    <td class="border text-center">
+                                    <td class="border text-center"><v-btn class="text-center" :color="bg(items.status_eva)">{{ items.status_eva === 1 ? 'รอการประเมินตนเอง':items.status_eva === 2 ? 'รอกรรมการประเมิน':'ประเมินสำเร็จ'}}</v-btn></td>
+                                    <!-- <td class="border text-center">
                                         <v-btn class="text-center text-white ma-2" color="info" @click="go(items.id_eva)">รายละเอียด</v-btn>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 <tr>
                                     <td class="text-center text-red" colspan="12" v-if="result.length === 0">ไม่พบข้อมูล</td>
@@ -156,6 +156,12 @@ const result = computed(()=>{
     })
 
 })
+
+const bg = (status_eva:number)=>{
+    if(status_eva === 1)return 'error'
+    else if(status_eva === 2)return 'warning'
+    else if(status_eva === 3)return 'success'
+}
 
 const go = (id_eva:number)=>{
     navigateTo({path:`/Staff/score_member-${id_eva}`})

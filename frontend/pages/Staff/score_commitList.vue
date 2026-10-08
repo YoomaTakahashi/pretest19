@@ -105,7 +105,7 @@ const fetch = async()=>{
         const res = await axios.get(`${staff}/eva/show`,{headers:{Authorization:`Bearer ${token}`}})
         dataResult.value = res.data
 
-        const res2 = await axios.get(`${staff}/round/show`,{headers:{Authorization:`Bearer ${token}`}})
+        const res2 = await axios.get(`${staff}/system/show`,{headers:{Authorization:`Bearer ${token}`}})
         round.value = res2.data
 
         const res3 = await axios.get(`${staff}/member/showE`,{headers:{Authorization:`Bearer ${token}`}})
@@ -132,9 +132,6 @@ const del = async(id_eva:number)=>{
     }
 }
 
-const go = (id_eva:number)=>{
-    navigateTo({path:`/Staff/commit-eva-${id_eva}`})
-}
 
 const formatDate = (dateStr:string)=>{
     if(!dateStr)return '-'
@@ -161,7 +158,7 @@ const result = computed(()=>{
 })
 
 const go = (id_eva:number)=>{
-    navigateTo({path:`/Staff/score_member-${id_eva}`})
+    navigateTo({path:`/Staff/score_commit-${id_eva}`})
 }
 
 onMounted(fetch)

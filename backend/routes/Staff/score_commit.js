@@ -18,7 +18,7 @@ router.get('/topic/:id_eva',verifyToken,requireRole('ฝ่ายบุคลา
     try {
         const {id_eva} = req.params
         const [topics] = await db.query(`select * from tb_topic `)
-        const [indicates] = await db.query(`select * from tb_indicate i,tb_evadetail d where i.id_indicate=d.id_indicate and status_eva in (1) order by id_eva=?`,[id_eva])
+        const [indicates] = await db.query(`select * from tb_indicate `)
         const result = topics.map(t=>({
             ...t, indicates:indicates.filter((i)=> i.id_topic === t.id_topic)
         }))
@@ -29,11 +29,21 @@ router.get('/topic/:id_eva',verifyToken,requireRole('ฝ่ายบุคลา
     }
 })
 
-router.get('/score',verifyToken,requireRole('ฝ่ายบุคลากร'),async(req,res)=>{
+router.get('/commit/:id_eva',verifyToken,requireRole('ฝ่ายบุคลากร'),async(req,res)=>{
     try {
-        const id_member = req.user.id_member
-        const [[evaRow]] = await db.query(`select  * from tb_member m,tb_eva e,tb_system s where e.id_member=? and e.id_member=m.id_member and e.id_sys=s.id_sys order by e.id_eva desc`,[id_member])
-        const id_eva =evaRow.id_eva
+        const {id_eva} =req.params
+        const [rows] = await db.query(`select  * from tb_member m,tb_eva e,tb_system s,tb_commit c where c.id_eva=? and c.id_member=m.id_member and c.id_eva=e.id_eva and e.id_sys=s.id_sys order by e.id_eva desc`,[id_eva])
+        res.json(rows)
+    } catch (error) {
+        console.error('error get profile',error)
+        res.status(500).json({message:'Error get Profile'})
+    }
+})
+
+router.get('/score/:id_eva',verifyToken,requireRole('ฝ่ายบุคลากร'),async(req,res)=>{
+    try {
+        
+        const id_eva =req.params.id_eva
         const [rows] = await db.query(`select * from tb_indicate i,tb_evadetail d where i.id_indicate=d.id_indicate and status_eva in (2,3,4) order by id_eva=?`,[id_eva])
         const scores = {}
         rows.map(row=>{

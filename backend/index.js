@@ -48,8 +48,17 @@ app.use('/api/Staff/eva',eva)
 const commit = require('./routes/Staff/commit')
 app.use('/api/Staff/commit',commit)
 
+const score_member2 = require('./routes/Staff/score_member')
+app.use('/api/Staff/score_member',score_member2)
+
+const score_commit2 = require('./routes/Staff/score_commit')
+app.use('/api/Staff/score_commit',score_commit2)
+
 const doc = require('./routes/Staff/doc')
 app.use('/api/Staff/doc',doc)
+
+const status = require('./routes/Staff/status')
+app.use('/api/Staff/status',status)
 
 const backup = require('./routes/Staff/backup')
 app.use('/api/Staff/backup',backup)

@@ -3,7 +3,7 @@ const db = require('../../db')
 const router = express.Router()
 const {verifyToken,requireRole} = require('../../middleware/authmiddleware')
 
-router.get('/user',verifyToken,requireRole('ผู้รับการประเมินผล'),async(req,res)=>{
+router.get('/commit',verifyToken,requireRole('ผู้รับการประเมินผล'),async(req,res)=>{
     try {
         const id_member =req.user.id_member
         const [rows] = await db.query(`select  * from tb_member m,tb_eva e,tb_system s,tb_commit c where c.id_member=? and c.id_member=m.id_member and c.id_eva=e.id_eva and e.id_sys=s.id_sys order by e.id_eva desc`,[id_member])

@@ -7,7 +7,11 @@
                         <h1 class="text-center text-h5">สำรองข้อมูล</h1>
                     </v-card-title>
                     <v-card-text>
-                        <p class="text-body-2">เลือกตารางที่ต้องการสำรอง</p>
+                        <div class="d-flex align-center">
+                            <p class="text-body-2">เลือกตารางที่ต้องการสำรอง</p>
+                            <v-btn variant="tonal" class="ms-2" color="primary" @click="reload()">โหลดรายชื่อตารางใหม่</v-btn>
+                        </div>
+                        
                         <v-alert v-if="error" class="mt-4" type="error" variant="tonal">{{ error }}</v-alert>
                         <template>
                             <p>ตารางในฐานข้อมูล: {{ tables.length }} | เลือกแล้ว: {{ select.length }}</p>
@@ -74,7 +78,9 @@ const backUp = async()=>{
     }
 }
 
-
+const reload = ()=>{
+    window.location.reload()
+}
 
 onMounted(fetch)
 

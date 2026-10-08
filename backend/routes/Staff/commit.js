@@ -52,7 +52,7 @@ router.delete('/delete/:id_commit',verifyToken,requireRole('ฝ่ายบุ�
 router.get('/header/:id_eva',verifyToken,requireRole('ฝ่ายบุคลากร'),async(req,res)=>{
     try {
         const {id_eva} = req.params
-        const [rows]= await db.query(`select * from tb_eva e,tb_member m,tb_system s where e.id_eva = ? and e.id_member = m.id_member and e.id_sys = s.id_sys`)
+        const [rows]= await db.query(`select * from tb_eva e,tb_member m,tb_system s where e.id_eva = ? and e.id_member = m.id_member and e.id_sys = s.id_sys`,[id_eva])
         res.json(rows[0])
     } catch (error) {
         console.error("error get",error);
