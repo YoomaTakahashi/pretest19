@@ -68,10 +68,10 @@ const roles = [
     {title:'รายงาน',to:'/Evaluatee/report',role:'ผู้รับการประเมินผล'},
     {title:'คู่มือการประเมิน',to:'/Evaluatee/doc',role:'ผู้รับการประเมินผล'},
     
-    {title:'รายชื่อผู้รับการประเมิน',to:'/Staff/',role:'กรรมการประเมิน'},
-    {title:'ดำเนินการประเมิน',to:'/Staff/show_eva',role:'กรรมการประเมิน'},
-    {title:'ตรวจสอบผลและยืนยัน',to:'/Staff/check_confirm',role:'กรรมการประเมิน'},
-    {title:'คู่มือการประเมิน',to:'/Staff/doc',role:'กรรมการประเมิน'},
+    {title:'รายชื่อผู้รับการประเมิน',to:'/Committee/',role:'กรรมการประเมิน'},
+    {title:'ดำเนินการประเมิน',to:'/Committee/show_eva',role:'กรรมการประเมิน'},
+    {title:'ตรวจสอบผลและยืนยัน',to:'/Committee/check_confirm',role:'กรรมการประเมิน'},
+    {title:'คู่มือการประเมิน',to:'/Committee/doc',role:'กรรมการประเมิน'},
     
 ]
 
